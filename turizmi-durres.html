@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Turizmi në Durrës – Zbulo Perlen e Adriatikut</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#d4d1c2;color:#111;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:68px;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid #eee}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#111;letter-spacing:-0.01em}
+.nav-logo span{color:#2e7d55}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:#555;text-decoration:none;letter-spacing:0.02em;transition:color .2s}
+.nav-links a:hover{color:#111}
+.nav-cta{background:#553f31;color:#fff;font-size:0.8rem;font-weight:500;padding:0.55rem 1.3rem;border-radius:50px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:#6b4f3e}
+
+/* HERO */
+#hero{position:relative;height:92vh;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg, rgba(10,25,18,0.7) 0%, rgba(46,125,85,0.4) 50%, rgba(10,25,18,0.85) 100%),url('Untitled design.png') center/cover no-repeat;transform:scale(1.04);animation:hzoom 14s ease-in-out infinite alternate}
+@keyframes hzoom{from{transform:scale(1.04)}to{transform:scale(1.10)}}
+.hero-inner{position:relative;z-index:2;padding:0 1rem}
+.hero-sub-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:50px;margin-bottom:1.4rem;animation:fup .7s ease both}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6.4rem);font-weight:700;color:#fff;line-height:1.06;letter-spacing:-0.02em;animation:fup .8s .08s ease both}
+.hero-h1 em{font-style:italic;color:#86efac}
+.hero-p{margin-top:1.2rem;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.82);max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;animation:fup .9s .18s ease both}
+@keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* SEARCH BAR */
+.search-bar{position:relative;z-index:2;display:flex;align-items:center;background:#fff;border-radius:60px;box-shadow:0 8px 40px rgba(0,0,0,0.18);padding:0.45rem 0.45rem 0.45rem 1.8rem;gap:0.8rem;margin-top:2.4rem;max-width:700px;width:90%;animation:fup 1s .3s ease both}
+.search-field{display:flex;flex-direction:column;flex:1;min-width:0}
+.search-field label{font-size:0.67rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#888}
+.search-field input{border:none;outline:none;font-size:0.92rem;font-family:'Inter',sans-serif;color:#111;background:transparent;padding:0}
+.search-field input::placeholder{color:#aaa}
+.search-sep{width:1px;height:36px;background:#e5e5e5;flex-shrink:0}
+.search-btn{background:#553f31;color:#fff;border:none;border-radius:50px;padding:0.7rem 1.6rem;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s;font-family:'Inter',sans-serif}
+.search-btn:hover{background:#6b4f3e}
+
+/* PILL TOGGLE (inspired by image 2) */
+.toggle-wrap{display:flex;align-items:center;gap:0.8rem;margin-top:1.6rem;animation:fup 1.1s .4s ease both}
+.toggle-label{font-size:0.78rem;color:rgba(255,255,255,0.75);font-weight:400}
+.pill-toggle{position:relative;width:56px;height:30px;cursor:pointer}
+.pill-toggle input{opacity:0;width:0;height:0;position:absolute}
+.pill-track{position:absolute;inset:0;background:#e5e7eb;border-radius:50px;transition:background .3s}
+.pill-track::after{content:'';position:absolute;top:3px;left:3px;width:24px;height:24px;background:#fff;border-radius:50%;transition:transform .3s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
+.pill-toggle input:checked~.pill-track{background:#2e7d55}
+.pill-toggle input:checked~.pill-track::after{transform:translateX(26px)}
+.toggle-text{font-size:0.78rem;color:rgba(255,255,255,0.75)}
+
+/* SECTION */
+section{padding:80px 60px}
+.sec-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#2e7d55;margin-bottom:0.6rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#111;line-height:1.15}
+.sec-title em{font-style:italic;color:#2e7d55}
+.sec-desc{margin-top:0.9rem;font-size:0.95rem;color:#666;line-height:1.8;max-width:520px}
+
+/* EXPLORE GRID */
+#explore{background:#d4d1c2}
+.explore-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.8rem;flex-wrap:wrap;gap:1rem}
+.explore-head .sec-title{text-align:left}
+.view-all{font-size:0.82rem;font-weight:500;color:#111;text-decoration:none;border-bottom:1px solid #ddd;padding-bottom:2px;transition:border-color .2s}
+.view-all:hover{border-color:#111}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.dest-card{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .3s,box-shadow .3s}
+.dest-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.13)}
+.dest-img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .5s}
+.dest-card:hover .dest-img{transform:scale(1.06)}
+.dest-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.95);border-radius:50px;display:flex;align-items:center;gap:4px;padding:5px 10px;font-size:0.76rem;font-weight:600;color:#111}
+.dest-badge .star{color:#f59e0b;font-size:0.8rem}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem}
+.dest-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff}
+.dest-loc{font-size:0.78rem;color:rgba(255,255,255,0.75);margin-top:3px;display:flex;align-items:center;gap:4px}
+
+/* BANNER */
+#banner{background:#d4d1c2;padding:40px 60px}
+.banner-inner{display:grid;grid-template-columns:1fr 1fr;min-height:480px;gap:2rem}
+.banner-img-side{position:relative;overflow:hidden;border-radius:22px}
+.banner-img{width:100%;height:100%;object-fit:cover;display:block}
+.banner-content{padding:40px 20px;display:flex;flex-direction:column;justify-content:center}
+.banner-stats{display:flex;gap:2.5rem;margin-top:2.4rem}
+.bstat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#111;line-height:1}
+.bstat-label{font-size:0.78rem;color:#888;margin-top:4px}
+.banner-btn{margin-top:2.4rem;display:inline-flex;align-items:center;gap:0.5rem;background:#553f31;color:#fff;font-size:0.83rem;font-weight:500;padding:0.8rem 1.8rem;border-radius:50px;text-decoration:none;transition:background .2s;align-self:flex-start}
+.banner-btn:hover{background:#6b4f3e}
+
+/* BEACHES */
+#plazhet{background:#d4d1c2}
+.beach-scroll{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-top:2.4rem;padding-bottom:0.8rem}
+.beach-card{flex:0 0 240px;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 2px 14px rgba(0,0,0,0.07);cursor:pointer;transition:transform .3s}
+.beach-card:hover{transform:translateY(-5px)}
+.beach-img{width:100%;height:340px;object-fit:cover;display:block;transition:transform .5s}
+.beach-card:hover .beach-img{transform:scale(1.07)}
+.beach-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.3rem}
+.beach-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700}
+.beach-km{font-size:0.74rem;color:rgba(255,255,255,0.7);margin-top:3px}
+.beach-pill{display:inline-block;margin-top:8px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:0.68rem;font-weight:500;padding:3px 10px;border-radius:50px;letter-spacing:0.05em}
+
+/* GASTRONOMI */
+#gastronomi{background:#c9c5b8}
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.4rem}
+.food-card{background:#fff;border-radius:14px;padding:1.6rem;border:1px solid #eee;transition:box-shadow .25s,transform .25s}
+.food-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.09);transform:translateY(-3px)}
+.food-icon{font-size:2rem;margin-bottom:0.9rem}
+.food-name{font-size:1rem;font-weight:600;color:#111;margin-bottom:0.4rem}
+.food-desc{font-size:0.84rem;color:#777;line-height:1.7}
+
+/* TIPS */
+#praktike{background:#553f31;color:#fff}
+#praktike .sec-eyebrow{color:#4ade80}
+#praktike .sec-title{color:#fff}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+.tip-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1.6rem;transition:background .25s}
+.tip-card:hover{background:rgba(255,255,255,0.09)}
+.tip-icon{font-size:1.6rem;margin-bottom:0.8rem}
+.tip-title{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.4rem}
+.tip-text{font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.7}
+
+/* MAP */
+#harta{background:#d4d1c2;padding:80px 60px}
+.map-wrap{margin-top:2.4rem;border-radius:18px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,0.1);border:1px solid #eee}
+.map-wrap iframe{width:100%;height:420px;border:none;display:block}
+
+
+
+/* FOOTER */
+footer{background:#553f31;color:rgba(255,255,255,0.55);padding:50px 60px 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.8rem;display:block}
+.f-logo span{color:#4ade80}
+footer p{font-size:0.83rem;line-height:1.8}
+.f-col h4{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1rem}
+.f-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:0.5rem;transition:color .2s}
+.f-col a:hover{color:#fff}
+.footer-line{background:#4a3628;border-top:1px solid rgba(255,255,255,0.1);text-align:center;padding:1.2rem 60px;font-size:0.76rem;color:rgba(255,255,255,0.35)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+section{opacity:0;transition:opacity .8s ease;}
+section.in{opacity:1;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:55px 20px}
+  .cards-grid{grid-template-columns:1fr}
+  .banner-inner{grid-template-columns:1fr}
+  .banner-img-side{height:260px}
+  .food-grid{grid-template-columns:1fr 1fr}
+  .tips-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:40px 20px 20px}
+  .footer-line{padding:1rem 20px}
+  #harta{padding:55px 20px}
+  #cta{padding:55px 20px}
+  .search-bar{flex-wrap:wrap;border-radius:18px;padding:1rem}
+  .search-sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Durrës <span>Turizëm</span></span>
+  <ul class="nav-links">
+    <li><a href="#explore">Destinacionet</a></li>
+    <li><a href="#plazhet">Plazhet</a></li>
+    <li><a href="#gastronomi">Gastronomia</a></li>
+    <li><a href="#praktike">Udhëzues</a></li>
+    <li><a href="#harta">Harta</a></li>
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-sub-tag"><span class="hero-dot"></span> Shqipëria · Breg Adriatiku</div>
+    <h1 class="hero-h1">Zbulo magjinë e<br><em>Durrësit</em></h1>
+    <p class="hero-p">Qyteti më i lashtë bregdetar i Shqipërisë — 3 000 vjet histori, plazhe të arta dhe kuzinë mediterane.</p>
+
+    <!-- SEARCH BAR -->
+    <div class="search-bar">
+      <div class="search-field">
+        <label>Destinacioni</label>
+        <input type="text" placeholder="Durrës, Shqipëri"/>
+      </div>
+      <div class="search-sep"></div>
+      <div class="search-field">
+        <label>Data e Vizitës</label>
+        <input type="text" placeholder="Qershor – Gusht"/>
+      </div>
+      <div class="search-sep"></div>
+      <div class="search-field">
+        <label>Aktiviteti</label>
+        <input type="text" placeholder="Plazh, Histori…"/>
+      </div>
+      <button class="search-btn">Kërko →</button>
+    </div>
+
+    <!-- PILL TOGGLE -->
+    <div class="toggle-wrap">
+      <span class="toggle-label">Vetëm fshatra bregdetare</span>
+      <label class="pill-toggle">
+        <input type="checkbox" checked/>
+        <span class="pill-track"></span>
+      </label>
+      <span class="toggle-text">Po</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE / DESTINATIONS -->
+<section id="explore">
+  <div class="explore-head reveal">
+    <div>
+      <div class="sec-eyebrow">Vendet që duhet të vizitosh</div>
+      <h2 class="sec-title">Eksploro të<br><em>bukurën</em></h2>
+    </div>
+    <a href="#" class="view-all">Shiko të gjitha →</a>
+  </div>
+  <div class="cards-grid">
+    <div class="dest-card reveal">
+      <img class="dest-img" src="amfiteatri.jpg" alt="Amfiteatri Romak"/>
+      <div class="dest-badge"><span class="star">★</span> 4.9</div>
+      <div class="dest-overlay">
+        <div class="dest-name">Amfiteatri Romak</div>
+        <div class="dest-loc">📍 Durrës Qendër</div>
+      </div>
+    </div>
+    <div class="dest-card reveal">
+      <img class="dest-img" src="shetitorja.png" alt="Shëtitorja Bregdetare"/>
+      <div class="dest-badge"><span class="star">★</span> 4.7</div>
+      <div class="dest-overlay">
+        <div class="dest-name">Shëtitorja Bregdetare</div>
+        <div class="dest-loc">📍 Lungomare Durrës</div>
+      </div>
+    </div>
+    <div class="dest-card reveal">
+      <img class="dest-img" src="muzeu arkeologjik.jpg" alt="Muzeu Arkeologjik"/>
+      <div class="dest-badge"><span class="star">★</span> 4.6</div>
+      <div class="dest-overlay">
+        <div class="dest-name">Muzeu Arkeologjik</div>
+        <div class="dest-loc">📍 Durrës, AL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER "Conquer the trails" style -->
+<div id="banner">
+  <div class="banner-inner">
+    <div class="banner-img-side">
+      <img class="banner-img" src="durres.png" alt="Durrësi nga lart"/>
+    </div>
+    <div class="banner-content reveal">
+      <div class="sec-eyebrow">Pse Durrësi?</div>
+      <h2 class="sec-title">Pushimet tuaja <em>të përsosura</em> ju presin</h2>
+      <p class="sec-desc">Nga mëngjeset me diell mbi Adriatik deri te ngrysjet romantike pranë portit historik — Durrësi ofron gjithçka.</p>
+      <div class="banner-stats">
+        <div>
+          <div class="bstat-num">3000+</div>
+          <div class="bstat-label">Vjet Histori</div>
+        </div>
+        <div>
+          <div class="bstat-num">330</div>
+          <div class="bstat-label">Ditë Dielli</div>
+        </div>
+        <div>
+          <div class="bstat-num">70km</div>
+          <div class="bstat-label">Breg Deti</div>
+        </div>
+      </div>
+      <a href="#plazhet" class="banner-btn">Zbulo Plazhet ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- PLAZHET -->
+<section id="plazhet">
+  <div class="reveal">
+    <div class="sec-eyebrow">Adriatiku të thërret</div>
+    <h2 class="sec-title">Plazhet më të bukura <em>afër Durrësit</em></h2>
+    <p class="sec-desc">Rëra e artë dhe uji kristalor — nga qendra e qytetit deri te bukuritë e fshehta.</p>
+  </div>
+  <div class="beach-scroll">
+    <div class="beach-card">
+      <img class="beach-img" src="plazhi qendror.jpg" alt="Plazhi Qendror"/>
+      <div class="beach-over">
+        <div class="beach-name">Plazhi Qendror</div>
+        <div class="beach-km">0 km · Qendra e qytetit</div>
+        <span class="beach-pill">Ideal për familje</span>
+      </div>
+    </div>
+    <div class="beach-card">
+      <img class="beach-img" src="golem.jpg" alt="Golem"/>
+      <div class="beach-over">
+        <div class="beach-name">Golem</div>
+        <div class="beach-km">15 km · Jug</div>
+        <span class="beach-pill">Animacion nate</span>
+      </div>
+    </div>
+    <div class="beach-card">
+      <img class="beach-img" src="Gjiri i Lalzit.jpg" alt="Gjiri i Lalzit"/>
+      <div class="beach-over">
+        <div class="beach-name">Gjiri i Lalzit</div>
+        <div class="beach-km">20 km · Veri</div>
+        <span class="beach-pill">Paqësor & natyral</span>
+      </div>
+    </div>
+    <div class="beach-card">
+      <img class="beach-img" src="Spille.jpg" alt="Spille"/>
+      <div class="beach-over">
+        <div class="beach-name">Spille / Kavajë</div>
+        <div class="beach-km">25 km · Jug</div>
+        <span class="beach-pill">I heshtur & i pastër</span>
+      </div>
+    </div>
+    <div class="beach-card">
+      <img class="beach-img" src="Shëngjin.jpg" alt="Shëngjin"/>
+      <div class="beach-over">
+        <div class="beach-name">Shëngjin</div>
+        <div class="beach-km">80 km · Veri</div>
+        <span class="beach-pill">Ekskluziv & modern</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMI -->
+<section id="gastronomi">
+  <div class="reveal">
+    <div class="sec-eyebrow">Shija e Adriatikut</div>
+    <h2 class="sec-title">Gastronomia <em>lokale</em></h2>
+    <p class="sec-desc">Freskia e detit takohet me recetat e trashëguara brez pas brezi.</p>
+  </div>
+  <div class="food-grid">
+    <div class="food-card reveal"><div class="food-icon">🦐</div><div class="food-name">Karavidhe & Kallamar</div><p class="food-desc">Frutat e freskëta të detit Adriatik me vaj ulliri dhe limon, recetë tradicionale peshkatarësh.</p></div>
+    <div class="food-card reveal"><div class="food-icon">🐟</div><div class="food-name">Peshk në Skarë</div><p class="food-desc">Çupra, levrek dhe skumbri të kapur çdo mëngjes, të pjekur me erëza mediterane.</p></div>
+    <div class="food-card reveal"><div class="food-icon">🥗</div><div class="food-name">Sallatë Shqiptare</div><p class="food-desc">Domate, kastravec, piper dhe djathë i bardhë — freskia verore shoqëruar me bukë misri.</p></div>
+    <div class="food-card reveal"><div class="food-icon">🥧</div><div class="food-name">Baklava & Trileçe</div><p class="food-desc">Ëmbëlsirat tradicionale shqiptare. Trileçja e Durrësit konsiderohet ndër më të mirat.</p></div>
+    <div class="food-card reveal"><div class="food-icon">🍷</div><div class="food-name">Verë Shqiptare</div><p class="food-desc">Kallmet dhe Shesh i Zi — varietete autoktonë me karakter unik mesdhetar.</p></div>
+    <div class="food-card reveal"><div class="food-icon">☕</div><div class="food-name">Kafja Turke</div><p class="food-desc">Kulturë e ngulitur thellë — kafenetë historike pranë shëtitores ju prisin çdo mëngjes.</p></div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="praktike">
+  <div class="reveal">
+    <div class="sec-eyebrow">Informacion Praktik</div>
+    <h2 class="sec-title">Gjithçka që duhet të <em>dini</em></h2>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card reveal"><div class="tip-icon">✈️</div><div class="tip-title">Si të Arrish</div><p class="tip-text">Aeroporti "Nënë Tereza" ndodhet 30 km larg. Autobusat dhe taksi-et lidhin Tiranën me Durrësin çdo orë.</p></div>
+    <div class="tip-card reveal"><div class="tip-icon">📅</div><div class="tip-title">Koha më e Mirë</div><p class="tip-text">Maji–Shtatori është sezoni ideal. Qershori dhe Shtatori ofrojnë klimë të këndshme me më pak turmë.</p></div>
+    <div class="tip-card reveal"><div class="tip-icon">💱</div><div class="tip-title">Çmimet & Monedha</div><p class="tip-text">Leku shqiptar (ALL). Eurot pranohen gjerësisht. Buxheti mesatar: 3 000–5 000 ALL/ditë.</p></div>
+    <div class="tip-card reveal"><div class="tip-icon">🏨</div><div class="tip-title">Akomodim</div><p class="tip-text">Nga hotele luksoze deri te butonikë të rehatshëm. Çmimet: 20–150€/natë. Rezervoni paraprakisht.</p></div>
+    <div class="tip-card reveal"><div class="tip-icon">🚗</div><div class="tip-title">Transport Lokal</div><p class="tip-text">Taksitë dhe Bolt funksionojnë mirë. Për bregdet mund të qiratohet biçikletë ose motoçikletë.</p></div>
+    <div class="tip-card reveal"><div class="tip-icon">🛡️</div><div class="tip-title">Siguria</div><p class="tip-text">Qytet i sigurt për turistët. Numri i urgjencës: 112. Policia Turistike është aktive gjatë sezonit.</p></div>
+  </div>
+</section>
+
+<!-- HARTA -->
+<section id="harta">
+  <div class="reveal">
+    <div class="sec-eyebrow">Orientohuni</div>
+    <h2 class="sec-title">Harta e <em>Durrësit</em></h2>
+    <p class="sec-desc">Gjeni atraksionet, hotelet dhe restorantet kryesore të qytetit.</p>
+  </div>
+  <div class="map-wrap reveal">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=19.40%2C41.28%2C19.52%2C41.36&layer=mapnik&marker=41.3231%2C19.4414" title="Harta e Durrësit" loading="lazy"></iframe>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="f-logo">Durrës <span>Turizëm</span></span>
+    <p>Portali i turizmit të Durrësit — ku Adriatiku takohet me historinë e lashtë ilire dhe romake.</p>
+  </div>
+  <div class="f-col">
+    <h4>Eksploro</h4>
+    <a href="#explore">Atraksionet</a>
+    <a href="#plazhet">Plazhet</a>
+    <a href="#gastronomi">Gastronomia</a>
+    <a href="#harta">Harta</a>
+  </div>
+  <div class="f-col">
+    <h4>Informacion</h4>
+    <a href="#">Si të arrish</a>
+    <a href="#">Akomodim</a>
+    <a href="#">Evente</a>
+    <a href="#">Kontakt</a>
+  </div>
+  <div class="f-col">
+    <h4>Rrjetet Sociale</h4>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+    <a href="#">TikTok</a>
+  </div>
+</footer>
+<div class="footer-line">© 2025 Turizmi në Durrës · Të gjitha të drejtat të rezervuara</div>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 70);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal, section').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
